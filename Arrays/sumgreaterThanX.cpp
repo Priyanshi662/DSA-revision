@@ -5,14 +5,14 @@ class Solution
     public:
     int subarrayWithSumgreaterThanX(int arr[],int n,int x)
     {
-        int sum=0,i=0,j=0,minlen=0;
+        int sum=0,i=0,j=0,minlen=INT_MAX;
         for(int i=0;i<n;i++)
         {
             sum+=arr[i];
             // do not move j till sum<=x - minimize window only when sum>x
             while(sum>x)
             {
-                minlen=min(minlen,j-i+1);
+                minlen=min(minlen,i-j+1);
                 sum-=arr[j];
                 j++;
             }
