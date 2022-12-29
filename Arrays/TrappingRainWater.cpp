@@ -34,12 +34,15 @@ class Solution{
 };
 int main(){
     int n;
+    cout<<"Enter the size of the array:";
     cin >> n;
     int a[n];
+    cout<<"Enter the elements of the array:";
     for(int i =0;i<n;i++){
         cin >> a[i];            
     }
     Solution obj;
+    cout<<"The maximum water that can be trapped is:";
     cout << obj.trappingWater(a, n) << endl;
     return 0;
 }

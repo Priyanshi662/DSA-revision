@@ -53,21 +53,16 @@ public:
 };
 
 int main() {
-    
-    long long T;
-    cin >> T;
-    
-    while(T--){
+        cout<<"Enter the size of the array:";
         long long N;
         cin >> N;
-        
         long long A[N];
+        cout<<"Enter the elements of the array:";
         for(long long i = 0;i<N;i++){
             cin >> A[i];
         }
         Solution obj;
+        cout<<"The number of inversions are:";
         cout << obj.inversionCount(A,N) << endl;
-    }
-    
     return 0;
 }
