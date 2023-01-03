@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 class Solution{
+	// This is a type of greedy problem
     public:
     typedef long long ll;
     ll findMinDiff(vector<ll> a,ll n,ll m)
