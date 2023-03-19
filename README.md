@@ -5,5 +5,6 @@ The repository consists of DSA questions on various topics -
 3. Strings
 4. Linked Lists
 5. Heap
+6. Binary Tree
 
-Question added are important to develop logic and also useful for technical interviews.
+Must-Do Questions for acing Tech Interviews
