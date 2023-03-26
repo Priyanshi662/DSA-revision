@@ -1,37 +1,44 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-struct TreeNode {
-      int val;
-      TreeNode *left;
-      TreeNode *right;
-      TreeNode() : val(0), left(nullptr), right(nullptr) {}
-      TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-      TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- };
-
 class Solution{
 public:
-void inorder(TreeNode* root,vector<int> &in)
-{   
-    if(root==NULL)
-        return;
-    inorder(root->left,in);
-    in.push_back(root->val);
-    inorder(root->right,in);
-}
-int minSwaps(TreeNode* root)
-{
-    vector<int> in;
-    inorder(root,in);
-    vector<int> cpy=in;
-    sort(in.begin(),in.end());
-    int count=0;
-    for(int i=0;i<in.size();i++)
+ public:
+    void inorder(vector<int> &A,int i,int n,vector<int>& res)
     {
-        if(in[i]!=cpy[i])
-            count++;
+            if(i>=n)
+            {
+                return;
+            }
+            inorder(A,2*i+1,n,res);
+            res.push_back(A[i]);
+            inorder(A,2*i+2,n,res);
     }
-    return count;
-}
+    int swaps(vector<int> & vec,int n)
+    {
+        map<int,int> mp;
+        for(int i=0;i<n;i++)
+        {
+            mp[vec[i]]=i;
+        }
+        sort(vec.begin(),vec.end());
+        int count=0;
+        int i=0;
+        while(i<n)
+        {
+            if(mp[vec[i]]!=i)
+            {
+                count++;
+                // we need to restore the array to prevent counting more than once
+                swap(vec[i],vec[mp[vec[i]]]);
+                continue;
+            }
+            i++;
+        }
+        return count;
+    }
+    int minSwaps(vector<int>&A, int n){
+        vector<int> vec;
+        inorder(A,0,n,vec);
+        return swaps(vec,n);
+    }
 };
