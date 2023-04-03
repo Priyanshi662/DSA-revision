@@ -1,5 +1,5 @@
 # DSA
-The repository consists of DSA questions on various topics -
+The repository consists of DSA questions on topics helpful for technical interviews -
 1. Arrays
 2. Greedy
 3. Strings
