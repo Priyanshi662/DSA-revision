@@ -2,7 +2,7 @@
 #include <iostream>
 #include <queue>
 using namespace std;
-
+// For logic understanding - https://cp-algorithms.com/graph/bipartite-check.html#algorithm
 class Solution {
 public:
     bool isBipartite(vector<vector<int>>& graph) {
