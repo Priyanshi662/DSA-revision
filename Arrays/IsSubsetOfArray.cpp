@@ -1,8 +1,6 @@
+// https://leetcode.com/problems/subsets/
 #include <bits/stdc++.h>
 using namespace std;
-/*
-    This is the template for array Data structure programs written in C++ 
-*/
 class Solution
 {
     public:
