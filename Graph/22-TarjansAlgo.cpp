@@ -21,6 +21,7 @@ void dfs(vector<vector<int>> &adj,vector<pair<int,int>> &res,vector<bool> &vis,v
             if(low[v]>disc[curr])
             {   
                 // then v cannot be reached by node other than curr(parent)
+                // it is a bridge node
                 res.push_back({curr,v});
             }
         }
