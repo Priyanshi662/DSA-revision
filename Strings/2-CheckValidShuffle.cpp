@@ -69,7 +69,6 @@ bool shuffle2Check(string str1,string str2,string str){
         j++;
         else
         return false;
-        
     k++;
     }
     if(i<str1.length()||j<str2.length())

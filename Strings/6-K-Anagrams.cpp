@@ -2,9 +2,14 @@
 #include <string>
 #include <unordered_map>
 using namespace std;
+// Two strings are called k-anagrams if following two conditions are true. 
+// Both have same number of characters.
+// Two strings can become anagram by changing at most k characters in a string.
 
 bool isKAnagram(string s1,string s2,int k)
 {
+    if(s1.size()!=s2.size())
+        return false;
     unordered_map<char,int> m1;
     // we can also take an array for counting-> char ch[MAX_CHAR]
     // this will optimize the space complexity of the solution
