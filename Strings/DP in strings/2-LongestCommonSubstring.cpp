@@ -31,6 +31,24 @@ int longestCommonSubstring1(string x,string y,int m,int n,int &maxcount,bool con
     }
     return maxcount;
 }
+// top down approach:
+int lcsubstring2(string x,string y,int m,int n,int &maxcount)
+{
+    for(int i=1;i<m;i++)
+    {
+        for(int j=1;j<n;j++)
+        {
+            if(x[i-1]==y[j-1])
+            {
+                dp[i][j]=1+dp[i-1][j-1];
+                if(maxcount<dp[i][j])
+                    maxcount=dp[i][j];
+            }
+            // else the dp[i][j] remains 0
+        }
+    }
+    return maxcount;
+}
 int main()
 {
     memset(dp,0,sizeof(dp));
@@ -39,6 +57,6 @@ int main()
     int m=a.size();
     int n=b.size();
     int maxcount=INT_MIN;
-    cout<<longestCommonSubstring1(a,b,m,n,maxcount,false);
+    cout<<lcsubstring2(a,b,m,n,maxcount);
     return 0;
 }
