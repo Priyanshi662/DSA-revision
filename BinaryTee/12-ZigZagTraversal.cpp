@@ -24,6 +24,7 @@ public:
         {
             vector<int> v;
             int n=q.size();
+            // pushing nodes at each level
             for(int i=0;i<n;i++)
             {
                 TreeNode* curr=q.front();
@@ -34,6 +35,7 @@ public:
                 if(curr->right!=NULL)
                     q.push(curr->right);
             }
+            // even level node will be reversed
             if(lvl%2!=0)
                 reverse(v.begin(),v.end());
             res.push_back(v);

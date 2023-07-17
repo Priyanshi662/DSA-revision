@@ -48,8 +48,8 @@ vector<int> solve2(TreeNode* root)
         {
             if(i==0)
                 res.push_back(q.front()->val);
-                TreeNode* curr=q.front();
-                q.pop();
+            TreeNode* curr=q.front();
+            q.pop();
             if(curr->left!=NULL)
                 q.push(curr->left);
             if(curr->right!=NULL)

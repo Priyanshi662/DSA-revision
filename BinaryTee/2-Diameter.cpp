@@ -11,6 +11,11 @@ struct TreeNode {
  };
 class Solution {
 public:
+// The diameter of a binary tree can be of present in 3 ways in a binary tree
+// 1. if the tree is left skewed it might be present in left subtree
+// 2. if the tree is right skewed it might be present in right subtree
+// 3. the longest path between the leaf nodes in left and right subtree passing through the root
+//     
 int height(TreeNode * root, int &diameter)
 {
     if(root==NULL)

@@ -95,7 +95,3 @@ public:
         return res;
     }
 };
-int main()
-{
-
-}
