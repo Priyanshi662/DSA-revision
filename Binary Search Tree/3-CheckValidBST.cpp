@@ -29,7 +29,8 @@ class Solution
             return true;
         else
             return false;
-        // The problem with this solution is that it is checking the immediate parent and not the parent from the root so it will give wrong answer when the input is of the form [5,4,6,null,null,3,7]
+        // The problem with this solution is that it is checking the immediate parent and not the parent from 
+        // the root so it will give wrong answer when the input is of the form [5,4,6,null,null,3,7]
     }
     // BRUTE FORCE:
     // Sort -> find inorder and see if their is any descending order in the inorder
