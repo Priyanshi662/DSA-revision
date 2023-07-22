@@ -2,7 +2,7 @@
 #include <algorithm>
 using namespace std;
 // It is like a deck of cards
-// Time complexity : O(nlogn) in best case
+// Time complexity : O(n) in best case
 // O(n^2) in worst and average case
 // space complexity : O(1)
 // It is a stable sort
@@ -25,6 +25,9 @@ void insertionsort(int arr[],int n)
         arr[i+1]=ele;
     }
 }
+
+// Insertion sort with binary search
+
 int main()
 {
     int arr[]={3,2,5,6,1};
