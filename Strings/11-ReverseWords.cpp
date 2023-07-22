@@ -30,7 +30,7 @@ string revWords(string s)
 }
 int main()
 {
-    string s="Priyanshi is a very beautiful girl";
+    string s="beautiful girl";
     string res=revWords(s);
     cout<<res<<endl;
     return 0;

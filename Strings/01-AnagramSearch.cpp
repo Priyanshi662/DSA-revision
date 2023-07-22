@@ -32,8 +32,8 @@ bool compare(string s,unordered_map<char,int> mp)
 	}
 
 //optimal : O(n)
+// using sliding window technique
 int search(string pat, string txt) {
-    // code here
     unordered_map<char,int> mp;
     for(char a : pat)
         mp[a]++;
@@ -47,9 +47,10 @@ int search(string pat, string txt) {
        //calculation
        if(mp.find(txt[j])!=mp.end()){
             mp[txt[j]]--;
-       if(mp[txt[j]]==0)
+            if(mp[txt[j]]==0)
                count--;
        }
+
        if(j-i+1<k)
            j++;
        else if(j-i+1==k)
@@ -58,10 +59,12 @@ int search(string pat, string txt) {
            if(count==0)
                 ans++;
            //check before incrementing i
+        //    restoring the values of txt[i] if pattern found
+        // to check for next anagram
            if(mp.find(txt[i])!=mp.end()){
-              mp[txt[i]]++;
-            if(mp[txt[i]]==1)
-               count++;
+                mp[txt[i]]++;
+                if(mp[txt[i]]==1)
+                    count++;
            }
            i++;
            j++;
