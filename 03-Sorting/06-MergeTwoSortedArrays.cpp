@@ -1,0 +1,57 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+// brute force -> add elements of arr1 and arr2 to arr3 and sort the arr3
+// Time complexity : O(nlogn)
+// space complexity: O(n+m)
+void merge1(int arr1[],int arr2[],int n,int m)
+{
+    int k=0;
+    vector<int> res;
+    for(int i=0;i<n;i++)
+        res.push_back(arr1[i]);
+
+    for(int j=0;j<m;j++)
+        res.push_back(arr2[j]);
+
+    sort(res.begin(),res.end());
+}
+// Better approach : using merge function of mergeSort -> 
+// time complexity : O(n+m)
+// space complexity: O(n+m)
+void merge(int arr1[],int arr2[],int n,int m)
+{
+    int i=0,j=0,k=0;
+    int arr3[n+m];
+    while(i<n && j<m)
+    {
+        if(arr1[i]<arr2[j])
+        {
+            arr3[k++]=arr1[i++];
+        }
+        else if(arr1[i]>arr2[j])
+        {
+            arr3[k++]=arr2[j++];
+        }
+    }
+    while(i<n)
+        arr3[k++]=arr1[i++];
+    while(j<m)
+        arr3[k++]=arr2[j++];
+}
+
+int main()
+{
+    int arr1[]={2,8,9,10};
+    int n=4;
+    int arr2[]={3,5,6,11,12};
+    int m=5;
+    merge1(arr1,arr2,n,m);
+    for(int i=0;i<n;i++)
+        cout<<arr1[i]<<" ";
+    for(int i=0;i<m;i++)
+        cout<<arr2[i]<<" ";
+    return 0;
+}
