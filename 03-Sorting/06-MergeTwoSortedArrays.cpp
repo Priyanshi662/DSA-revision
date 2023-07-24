@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cmath>
 using namespace std;
 
 // brute force -> add elements of arr1 and arr2 to arr3 and sort the arr3
@@ -42,6 +43,41 @@ void merge(int arr1[],int arr2[],int n,int m)
         arr3[k++]=arr2[j++];
 }
 
+// Optimal approach : without using extra space - using insertion sort
+void merge(long long arr1[], long long arr2[], int n, int m) 
+{
+    int gap=ceil((float)(n+m)/2);
+    while(gap>=1){
+        int i=0;
+        int j=gap;
+        while(j<(n+m))
+        {
+            //there will be three cases
+            //1.j is in 1st array,i is in 1st array and swap is required
+            if(j<n && arr1[i]>arr1[j]){
+                swap(arr1[i],arr1[j]);
+            }
+            //2.j is in 2nd array, i is in 1st array and swap is required
+            else if(j>=n && i<n && arr1[i]>arr2[j-n])
+            {
+                swap(arr1[i],arr2[j-n]);
+            }
+            //3.j is in 2nd array, i is in 2nd array and swap is required
+            else if(j>=n && i>=n &&arr2[i-n]>arr2[j-n])
+            {
+                swap(arr2[i-n],arr2[j-n]);
+            }
+            i++;
+            j++;
+        }
+        if(gap==1)
+        gap=0;
+        else
+        {
+            gap=ceil((float)gap/2);
+        }
+    }     
+} 
 int main()
 {
     int arr1[]={2,8,9,10};
