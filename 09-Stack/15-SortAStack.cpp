@@ -24,6 +24,7 @@ void sort(stack<int> &st)
     {
         int x=st.top();
         st.pop();
+        // empty the stack and add element recursively one by one
         sort(st);
         insertsorted(st,x);
     }
