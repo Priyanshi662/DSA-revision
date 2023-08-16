@@ -27,8 +27,8 @@ vector <int> calculateSpan(int arr[], int n)
 // using nearest greater to left
 // from ngl to the current element , there will only be smaller or equal to elements present
 vector <int> calculateSpan(int arr[], int n)
-    {
-       stack<int> st;
+{
+    stack<int> st;
     vector<int> ans(n,1);
     for(int i=0;i<n;i++)
     {
@@ -43,4 +43,4 @@ vector <int> calculateSpan(int arr[], int n)
         st.push(i);
     }
     return ans;
-    }
+}
