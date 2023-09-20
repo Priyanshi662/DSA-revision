@@ -56,6 +56,7 @@ public:
             slow=slow->next;
             fast=fast->next->next;
         }
+        // to half the current list 
         temp->next=NULL;
         ListNode* l1=sortList(head);
         ListNode* l2=sortList(slow);

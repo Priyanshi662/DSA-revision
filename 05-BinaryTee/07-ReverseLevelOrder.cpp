@@ -103,45 +103,22 @@ int main()
     }
     return 1;
 }
-// } Driver Code Ends
+void levelOrder(vector < vector < int >> & ans, Node * node, int level) {
+  if (!node) return;
+  if (level >= ans.size())
+    ans.push_back({});
+  ans[level].push_back(node -> data);
+  levelOrder(ans, node -> left, level + 1);
+  levelOrder(ans, node -> right, level + 1);
+}
+ 
+vector < vector < int >> levelOrderBottom(Node * root) {
+  vector < vector < int >> ans;
+  levelOrder(ans, root, 0);
+  reverse(ans.begin(), ans.end());
+  return ans;
+}
 
-// vector<int> reverseLevelOrderVec(Node *root)
-// {
-//     vector<vector<int>> res;
-//     // reverse(root->right->left)
-//     queue<Node*>q;
-//     q.push(root);
-    
-//     while(!q.empty())
-//     {
-//         vector<int> st;
-//         int n=q.size();
-//         for(int i=0;i<n;i++)
-//         {
-//             Node* curr=q.front();
-//             q.pop();
-//              st.push_back(curr->data);
-        
-//             if(curr->right!=NULL)
-//             {
-//                 q.push(curr->right);
-//             }
-//             if(curr->left!=NULL)
-//             {
-//                 q.push(curr->left);
-//             }
-//         }
-//         res.push_back(st);
-//     }
-//     for(int i=0;i<res.size();i++)
-//     {
-//         for(int j=0;j<res[0].size();j++)
-//         {
-//             cout<<res[i][j]<<" ";
-//         }
-//         cout<<endl;
-//     }
-// }
 vector<int> reverseLevelOrder(Node *root)
 {
     vector<int> res;

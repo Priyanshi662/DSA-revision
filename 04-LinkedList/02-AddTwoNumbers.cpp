@@ -17,7 +17,6 @@ public:
         ListNode* nl=new ListNode(-1);
         prev=nl;
         int carry=0;
-        int sum;
         while(carry>0||l1!=NULL||l2!=NULL)
         {
             carry+=(l1?l1->val:0)+(l2?l2->val:0);
@@ -28,5 +27,55 @@ public:
             if(l2!=NULL) l2=l2->next;
         }
         return prev->next;
+    }
+    ListNode* rev(ListNode* root)
+    {
+        if(root==NULL)
+            return NULL;
+        ListNode* prev,*next,*curr;
+        prev=NULL;
+        curr=root;
+        next=root->next;
+        while(curr!=NULL)
+        {
+            next=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=next;
+        }
+        return prev;
+    }
+    void insertAtTail(ListNode* & head,ListNode* & tail,int val)
+    {
+        ListNode* temp=new ListNode(val);
+        if(head==NULL)
+        {
+            head=temp;
+            tail=temp;
+            return;
+        }
+        else
+        {
+            tail->next=temp;
+            tail=temp;
+        }
+    }
+    ListNode* AddTwoNumbers(ListNode* first,ListNode* second)
+    {
+        int carry=0;
+        ListNode* head=NULL;
+        ListNode* tail=NULL;
+        while(first!=NULL || second!=NULL)
+        {
+            int dig=(first?first->val:0)+(second?second->val:0)+carry;
+            carry=dig/10;
+            dig=dig%10;
+            insertAtTail(head,tail,dig);
+            first=first->next;
+            second=second->next;
+        }
+        if(carry!=0)
+            insertAtTail(head,tail,1);
+        return head->next;
     }
 };

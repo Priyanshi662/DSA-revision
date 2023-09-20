@@ -83,6 +83,7 @@ int getLength(ListNode* a)
         ListNode* p1=a;
         ListNode* p2=b;
         //  TC : O(m+n) SC:O(1)
+         // this condition will be first to check because if both null then the intersection is not there
         if(p1==NULL || p2==NULL) 
             return NULL;
         while(p1!=NULL && p2!=NULL && p1!=p2)

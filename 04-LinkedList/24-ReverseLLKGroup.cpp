@@ -9,7 +9,36 @@ using namespace std;
   };
 class Solution {
 public:
- ListNode* reverse(ListNode* head,ListNode* tail)
+
+ListNode* reverseKGroup(ListNode* head, int k) {
+        if(head==NULL) 
+            return NULL;
+        ListNode* current=head;
+        // check for the size of list
+        // if the list is too short that is less than K then return head
+        for(int i=0;i<k;i++)
+        {
+            if(current==NULL)
+                return head;
+            current=current->next;
+        }
+        
+        int count=0;
+        ListNode* prev=NULL;
+        ListNode* next=head->next;
+        ListNode* curr=head;
+        while(curr!=NULL && count<k)
+        {
+            next=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=next;
+            count++;
+        }
+        head->next=reverseKGroup(curr,k);
+        return prev;
+    }
+     ListNode* reverse(ListNode* head,ListNode* tail)
     {
         ListNode* prev=tail;
         while(head!=tail)

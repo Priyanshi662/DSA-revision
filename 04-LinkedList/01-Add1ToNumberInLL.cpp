@@ -48,7 +48,7 @@ class Solution
         while(head!=NULL)
         {
             sum=head->data+carry;
-            carry=sum>=10? 1:0;
+            carry=(sum>=10)? 1:0;
             sum=sum%10;
             head->data=sum;
             prev=head;

@@ -59,6 +59,8 @@ public:
             // means sizeofLinkedList=n
             return head->next;
         }
+        // the distance between slow and fast =n so when fast->next=NULL then
+        // slow ->next is the nth node from the end
         while(fast!=NULL)
         {
             slow=slow->next;

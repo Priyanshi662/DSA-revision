@@ -11,6 +11,62 @@ public:
         left=right=NULL;
     }
 };
+
+class Solution {
+public:
+struct Node
+{
+    int data;
+    Node* left, * right;
+};
+    void TraverseLeft(Node* root,vector<int> &ans)
+    {
+        if(root==NULL || (root->left==NULL && root->right==NULL ))
+            return ;
+        
+        ans.push_back(root->data);
+        if(root->left!=NULL)
+            TraverseLeft(root->left,ans);
+        else
+            TraverseLeft(root->right,ans);
+    }
+    void TraverseLeafs(Node* root,vector<int> & ans)
+    {
+        if(root==NULL)
+            return;
+        if(root->left==NULL && root->right== NULL)
+        {
+            ans.push_back(root->data);
+            return;
+        }
+        TraverseLeafs(root->left,ans);
+        TraverseLeafs(root->right,ans);
+    }
+    void TraverseRight(Node* root,vector<int> &ans)
+    {
+        if(root==NULL || (root->left==NULL && root->right==NULL))
+            return;
+        if(root->right!=NULL)
+            TraverseRight(root->right,ans);
+        else
+            TraverseRight(root->left,ans);
+        // will push when the root->right becomes null
+        ans.push_back(root->data);
+    }
+    vector <int> boundary(Node *root)
+    {
+        vector<int> res;
+        res.push_back(root->data);
+        // left traversal:
+        TraverseLeft(root->left,res);
+        // leaf nodes traversal:
+        TraverseLeafs(root->left,res);
+        TraverseLeafs(root->right,res);
+        // right reverse traversal:
+        TraverseRight(root->right,res);
+        return res;
+    }
+};
 class Solution {
 public:
 // Using stack : TC : O(n)  SC:O(n)

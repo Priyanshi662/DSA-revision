@@ -17,6 +17,56 @@ struct Node
 class Solution
 {
     public:
+    // Step 1: Detect loop - stop the slow and fast at a point in the loop
+    // Floyd detection algorithm
+    Node* DetectAndfindIntersection(Node* head)
+    {
+        Node*slow=head;
+        Node* fast=head;
+        while(fast!=NULL && fast->next!=NULL)
+        {
+            if(slow==fast)
+                return slow;
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        return NULL;
+    }
+    // step 2 : get the starting point of the loop by using logic
+     // slow pointer distance - A+(C*x)+B
+    // fast pointer distance - 2* slow = A+C*y+B
+    // on solving - C(x-y)=A+B
+    // A+B is a multiple of C that is it is the cycle length
+    // to find the head of the cycle start slow from head
+    // and both slow and fast move with same pace
+    // slow will cover A distance and fast will now cover C-B distance which is equal to A
+
+    Node* getStartingNode(Node* head)
+    {
+        Node* intersection=DetectAndfindIntersection(head);
+        Node* slow=head;
+        while(slow!=intersection)
+        {
+            slow=slow->next;
+            intersection=intersection->next;
+        }
+        return slow;
+    }
+    // step 3: run a loop again and remove the last node of the loop
+    Node* RemoveLoop(Node* head)
+    {
+        Node* temp=head;
+        Node* loopStart=getStartingNode(head);
+        while(temp->next!=loopStart)
+        {
+            temp=temp->next;
+        }
+        temp->next=NULL;
+        return head;
+    }
+   
+
+
     bool detectLoop(Node* head)
     {
         Node* slow=head;
@@ -25,11 +75,18 @@ class Solution
         {
             if(slow==fast)
                 return true;
+                // once slow reaches the head of the loop -
+                //  lets say the distance between slow and fast is k then
+                // for every iteration in the loop the distance will keep reducing and 
+                // there will be a time when slow==fast ( may be inside the loop or the head of the loop)
             slow=slow->next;
             fast=fast->next->next;
         }
         return false;
     }
+
+
+
     // BRUTE FORCE : O(N) SC
     void bruteForceRemoveLoop(Node *head)
     {

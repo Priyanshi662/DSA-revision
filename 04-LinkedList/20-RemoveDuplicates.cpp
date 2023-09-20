@@ -33,3 +33,25 @@ struct ListNode {
         return head;
     }
 };
+/*
+    // from sorted list
+    Node* removeDuplicatesFromSortedLL(Node* head)
+    {
+        if(head==NULL || head->next==NULL)
+            return head;
+        ListNode* temp=head;
+        while(temp!=NULL && temp->next!=NULL)
+        {
+            if(temp->val==temp->next->val)
+            {
+                ListNode* dupliNode=temp->next;
+                temp->next=temp->next->next;
+                delete dupliNode;
+            }
+            else
+                temp=temp->next;
+        }
+        return head;
+    }
+    }
+*/

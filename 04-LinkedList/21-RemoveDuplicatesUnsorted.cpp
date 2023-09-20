@@ -25,6 +25,34 @@ class Solution
 {
     public:
     //Function to remove duplicates from unsorted linked list.
+
+    // Brute Force -> O(n^2) but space O(1)
+    Node* removeDuplicates1(Node* head)
+    {
+        // without using extra space:
+        Node* temp=head;
+        while(temp!=NULL && temp->next!=NULL)
+        {
+            Node* temp2=temp->next;
+            while(temp2!=NULL && temp2->next!=NULL)
+            {
+                if(temp2->data==temp->data)
+                {
+                    temp2=temp2->next->next;
+                    temp->next=temp2;
+                }
+                else
+                {
+                    temp2=temp2->next;
+                }
+            }
+        }
+        return head;
+    }
+    // Using sorting - O(nlogn)
+
+    
+    // Optimal - using map -O(n) and O(n)
     Node * removeDuplicates( Node *head) 
     {
         unordered_map<int,int> mp;
@@ -34,7 +62,9 @@ class Solution
         {
              if(mp.find(temp->next->data)!=mp.end())
              {
-                 temp->next=temp->next->next;
+                Node* dupliNode=temp->next;
+                delete dupliNode;
+                temp->next=temp->next->next;
              }
              else
              {
