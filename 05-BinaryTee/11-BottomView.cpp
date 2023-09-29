@@ -10,6 +10,14 @@ struct TreeNode {
       TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  };
 
+void bottomviewrec(TreeNode* root,unordered_map<int,int> & res,int vh)
+{
+    if(root==NULL)
+        return ;
+    res[vh]=root->val;
+    bottomviewrec(root->left,res,vh-1);
+    bottomviewrec(root->right,res,vh+1);
+}
 vector <int> bottomView(TreeNode *root) {
         vector<int> res;
         map<int,int> mp;

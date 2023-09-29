@@ -18,6 +18,53 @@ Node* newNode(int val)
     
     return temp;
 }
+
+void levelOrder(vector < vector < int >> & ans, Node * node, int level) {
+  if (!node) return;
+  if (level >= ans.size())
+    ans.push_back({});
+  ans[level].push_back(node -> data);
+  levelOrder(ans, node -> left, level + 1);
+  levelOrder(ans, node -> right, level + 1);
+}
+ 
+vector < vector < int >> levelOrderBottom(Node * root) {
+  vector < vector < int >> ans;
+  levelOrder(ans, root, 0);
+  reverse(ans.begin(), ans.end());
+  return ans;
+}
+
+vector<int> reverseLevelOrder(Node *root)
+{
+    vector<int> res;
+    // reverse(root->right->left)
+    queue<Node*>q;
+    q.push(root);
+    stack<int> st;
+    while(!q.empty())
+    {
+        Node* curr=q.front();
+        q.pop();
+        st.push(curr->data);
+        
+        if(curr->right!=NULL)
+        {
+            q.push(curr->right);
+        }
+        if(curr->left!=NULL)
+        {
+            q.push(curr->left);
+        }
+    }
+    while(!st.empty())
+    {
+        res.push_back(st.top());
+        st.pop();
+    }
+    return res;
+} 
+vector<int> reverseLevelOrder(Node* root);
 // Function to Build Tree
 Node* buildTree(string str)
 {   
@@ -82,8 +129,6 @@ Node* buildTree(string str)
     return root;
 }
 
-vector<int> reverseLevelOrder(Node* root);
-
 int main()
 {
 
@@ -102,49 +147,4 @@ int main()
         cout<<endl;
     }
     return 1;
-}
-void levelOrder(vector < vector < int >> & ans, Node * node, int level) {
-  if (!node) return;
-  if (level >= ans.size())
-    ans.push_back({});
-  ans[level].push_back(node -> data);
-  levelOrder(ans, node -> left, level + 1);
-  levelOrder(ans, node -> right, level + 1);
-}
- 
-vector < vector < int >> levelOrderBottom(Node * root) {
-  vector < vector < int >> ans;
-  levelOrder(ans, root, 0);
-  reverse(ans.begin(), ans.end());
-  return ans;
-}
-
-vector<int> reverseLevelOrder(Node *root)
-{
-    vector<int> res;
-    // reverse(root->right->left)
-    queue<Node*>q;
-    q.push(root);
-    stack<int> st;
-    while(!q.empty())
-    {
-        Node* curr=q.front();
-        q.pop();
-        st.push(curr->data);
-        
-        if(curr->right!=NULL)
-        {
-            q.push(curr->right);
-        }
-        if(curr->left!=NULL)
-        {
-            q.push(curr->left);
-        }
-    }
-    while(!st.empty())
-    {
-        res.push_back(st.top());
-        st.pop();
-    }
-    return res;
 }
