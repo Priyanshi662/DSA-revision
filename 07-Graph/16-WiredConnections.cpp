@@ -39,12 +39,15 @@ public:
         return count-1;
     }
     // By union find :
+    // Disjoint Sets: only work for undirected graphs
+    // Kruskal's algorithm uses disjoint sets
+    
     int find(int node,vector<int> &parent)
     {
         if(node==parent[node])
             return node;
         else
-            return parent[node]=find(parent[node],parent);
+            return parent[node]=find(parent[node],parent);// path compression
     }
     int makeConnected2(int n,vector<vector<int>> & c)
     {

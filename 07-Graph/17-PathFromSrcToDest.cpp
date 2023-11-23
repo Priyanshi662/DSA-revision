@@ -28,3 +28,36 @@ public:
        return ans;
     }
 };
+
+// BFS Solution:
+#include <queue>
+
+class Solution {
+public:
+    vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
+        int n = graph.size();
+        vector<vector<int>> result;
+        
+        queue<vector<int>> q;
+        q.push({0}); // Starting with node 0
+        
+        while (!q.empty()) {
+            vector<int> currentPath = q.front();
+            q.pop();
+            int currentNode = currentPath.back();
+            
+            if (currentNode == n - 1) {
+                result.push_back(currentPath);
+                continue;
+            }
+            
+            for (int neighbor : graph[currentNode]) {
+                vector<int> curr_path = currentPath;
+                curr_path.push_back(neighbor);
+                q.push(curr_path);
+            }
+        }
+        
+        return result;
+    }
+};

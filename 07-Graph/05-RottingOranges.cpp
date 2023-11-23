@@ -68,7 +68,7 @@ public:
                 if(grid[i][j]==1)
                     return -1;
                 else
-            ans=max(ans,grid[i][j]);
+                    ans=max(ans,grid[i][j]);
             }
         }
         return ans-2;
