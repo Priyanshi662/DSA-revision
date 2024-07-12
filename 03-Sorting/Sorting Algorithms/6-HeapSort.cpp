@@ -60,4 +60,37 @@ int main()
 // insertion sort -> like insertion sort it does not use any extra space
 // merge sort -> it has time complexity of O(nlogn) in all cases
 // thus it combines the best of both the algorithms
-// Applications : Heap sort is used in security concerned and embedded systems , and also in linux kernel because of its time complexity O(nlogn) in all the cases
+// Applications : Heap sort is used in security concerned and embedded systems , 
+// and also in linux kernel because of its time complexity O(nlogn) in all the cases
+
+
+/*
+> Prii:
+TCS Named One of the 50 Most Community-Minded Companies in the US
+News Alert | 14 May 2024
+
+> Prii:
+Tata Consultancy Services is an IT services, consulting and business solutions organization that has 
+been partnering with many of the world’s largest businesses in their transformation journeys for over
+56 years. Its consulting-led, cognitive powered, portfolio of business, technology and engineering 
+services and solutions is delivered through its unique Location Independent Agile™ delivery model, 
+recognized as a benchmark of excellence in software development.
+
+A part of the Tata group, India's largest multinational business group, TCS has over 601,000 of the 
+world’s best-trained consultants in 55 countries. The company generated consolidated revenues of US 
+$29 billion in the fiscal year ended March 31, 2024, and is listed on the BSE and the NSE in India. 
+TCS' proactive stance on climate change and award-winning work with communities across the world 
+have earned it a place in leading sustainability indices such as the MSCI Global Sustainability Index 
+and the FTSE4Good Emerging Index
+
+> Prii:
+Faqir Chand Kohli joined the young Tata Consultancy Services (TCS), a division of Tata Sons established 
+on April 1, 1968, by JRD Tata and Nani Palkhivala.
+
+> Prii:
+TCS said it will build a cloud-based digital ERP platform for Xerox to help boost its 
+enterprise-related 
+operations.
+
+
+*/

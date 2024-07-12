@@ -10,6 +10,7 @@ using namespace std;
 // It is a stable sort
 void merge(int arr[],int p,int r,int q)
 {
+    // merge(arr,left,right,mid)
     if(p>=q)
         return;
     int n1=q-p+1;

@@ -25,8 +25,6 @@ public:
             TreeNode* curr=q.front().first;
             int vh=q.front().second;
             q.pop();
-           
-           
             mp[vh].push_back(curr->val);
             
             if(curr->left!=NULL)

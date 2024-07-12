@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 // Time Complexity- O(n^2) in worst case
@@ -8,6 +9,19 @@ using namespace std;
 // but not suitable for large datasets since it is time consuming
 void bubbleSort(int arr[],int n)
 {
+       // Pass-1
+    // 3 2 1 4 2
+    // 2 3 1 4 2
+    // 2 1 3 4 2
+    // 2 1 3 2 4
+    // Pass-2
+    // 1 2 3 2 4
+    // 1 2 2 3 4
+    // Pass-3
+    // 1 2 2 3 4 -> swap=true
+    // break;
+    // ->sorted
+  
     for(int i=0;i<n;i++)
     {
         for(int j=0;j<(n-i);j++)
